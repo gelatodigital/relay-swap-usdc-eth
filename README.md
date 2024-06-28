@@ -32,8 +32,15 @@ In order to do so, we will transfer USDC to the contract with the relayer using 
       ```
 
 
-## Test
+## Tests
 We are forking arbitrum using [USDC](https://arbiscan.io/address/0xaf88d065e77c8cc2239327c5edb3a432268e5831), the [Pancake Router](0x8cFe327CEc66d1C090Dd72bd0FF11d690C33a2Eb)
+
+### Single call
+In this [test](./test/CounterPermit.test.ts#L63) we are mocking the `sponsoredCall` calling `increment()` method and checking that the entropy contract balance should increase with the entropy fee
+
+### Multiple call
+In this [test](./test/CounterPermit.test.ts#L63) we are mocking the `sponsoredCall` calling the `multiCallIncrement()` sending two txs, and checking that the entropy contract balance should increase with  2 x entropy fee
+
 
 ## Quick Start
 1. Install dependencies
